@@ -1,0 +1,24 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', 'CategoryController@index');
+Route::get('/manage', 'ContentController@index')->name('manage');
+Route::get('/manage/{id}', 'ContentController@nextLevelById');
+Route::get('/manage/add/category/{id}', 'ContentController@makeCategoryAddingView')->name('add_category');
+Route::get('/manage/add/article/{category_id}', function ($category_id) {
+    return view('add_article', [
+        'category_id' => $category_id
+    ]);
+})->name('add_article');

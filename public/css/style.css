@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background: rebeccapurple;
+    height: 150px;
+}
+
+.logo {
+    position: relative;
+    top: 50px;
+
+}
+
+.menu {
+    background: darkgray;
+    height: 40px;
+}
+
+.main_content {
+    background: whitesmoke;
+    height: auto;
+}
+
+.categories {
+    position: relative;
+    top: 50px;
+}
+
+.articles {
+    position: relative;
+    top: 50px;
+}
+
+.article_image {
+    height: 30vh;
+    width: 20vw;
+}
+
+table {
+    margin: auto;
+    width: 100% !important;
+}
