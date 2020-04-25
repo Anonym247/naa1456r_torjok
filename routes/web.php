@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'CategoryController@index');
+Route::get('/start', 'CategoryController@index')->name('motion');
+Route::get('/', function () { return view('home');})->name('home');
 Route::get('/manage', 'ContentController@index')->name('manage');
 Route::get('/manage/{id}', 'ContentController@nextLevelById');
 Route::get('/manage/add/category/{id}', 'ContentController@makeCategoryAddingView')->name('add_category');
@@ -22,3 +23,5 @@ Route::get('/manage/add/article/{category_id}', function ($category_id) {
         'category_id' => $category_id
     ]);
 })->name('add_article');
+
+Route::get('/settings', 'ApplicationController@settings')->name('settings');

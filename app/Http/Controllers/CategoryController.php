@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::where('parent', false)->get();
-        return view('home', [
+        return view('motion', [
             'categories' => $categories
         ]);
     }
@@ -22,7 +22,7 @@ class CategoryController extends Controller
         ->where('parent', $id)->get();
 //        dd($categories);
         if (count($categories))
-            return view('home', [
+            return view('motion', [
                 'categories' => $categories
             ]);
         $articles = Article::where('category_id', $id)->get();

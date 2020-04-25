@@ -54,7 +54,7 @@ class ArticleController extends Controller
             }
             catch (\Exception $exception)
             {
-                dd($exception->getMessage());
+                return response()->json(['error' => 'internal error'], 404);
             }
         }
 

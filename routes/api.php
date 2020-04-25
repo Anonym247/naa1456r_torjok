@@ -29,3 +29,5 @@ Route::group(['prefix' => 'articles'], function () {
     Route::get('/delete/{id}', 'ArticleController@destroy');
     Route::post('/add/{category_id}', 'ArticleController@create');
 });
+
+Route::post('settings', 'ApplicationController@setConfiguration')->name('configure');

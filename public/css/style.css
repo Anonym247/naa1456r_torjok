@@ -3,24 +3,35 @@
     padding: 0;
 }
 .header{
-    background: rebeccapurple;
+    background: purple;
     height: 150px;
 }
 
-.logo {
-    position: relative;
-    top: 50px;
+.settings {
+    height: 2.5vh;
+    width: 2.7vw;
+    position: fixed;
+    top: 2vh;
+    right: 1.5vw;
+}
 
+.logo {
+    height: 16vh;
+    display: block;
+    border-radius: 20px;
+    position: relative;
+    top: 2vh;
 }
 
 .menu {
     background: darkgray;
-    height: 40px;
+    margin-bottom: 0;
 }
 
 .main_content {
     background: whitesmoke;
     height: auto;
+    width: 100%;
 }
 
 .categories {
@@ -41,4 +52,45 @@
 table {
     margin: auto;
     width: 100% !important;
+}
+
+/*Fixed Navbar*/
+.navbar-brand {
+    font-size: 45px;
+    font-family: "Proxima Nova Soft", sans-serif;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-container {
+    padding: 20px 0 20px 0;
+}
+
+.navbar.navbar-fixed-top.fixed-theme {
+    border-color: #080808;
+    box-shadow: 0 0 5px rgba(0,0,0,.8);
+}
+
+.navbar-container.fixed-theme {
+    padding: 0;
+    margin: 0;
+}
+
+#header-container {
+    margin: 0 0 0 2%;
+    padding: 8px 0 8px 0;
+}
+
+.nav>li>a {
+    border-radius: 20px;
+    background-color: rgba(196,196,196, 1);
+    margin-left: 15px;
+}
+
+/*Hidden input file*/
+
+[hidden] {
+    display: none !important;
 }

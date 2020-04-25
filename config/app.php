@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'lasting'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,6 +68,12 @@ return [
     */
 
     'timezone' => 'UTC',
+    'app_name' => 'Laravel',
+    'images' => [
+        'logo' => '/uploads/images/logo.png',
+        'settings' => '/images/settings.svg',
+        'background' => '/uploads/images/700px-L-Kupplung.png',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -137,7 +143,7 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
+         * lasting Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
