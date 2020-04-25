@@ -20,13 +20,14 @@ class CategoryController extends Controller
     {
         $categories = Category::with('getParent')
         ->where('parent', $id)->get();
-//        dd($categories);
+        $articles = Article::where('category_id', $id)->get();
         if (count($categories))
             return view('motion', [
-                'categories' => $categories
+                'categories' => $categories,
+                'parent' => $categories[0]->getParent,
+                'articles' => $articles
             ]);
-        $articles = Article::where('category_id', $id)->get();
-        return view('category', [
+        return view('motion', [
             'articles' => $articles
         ]);
     }
@@ -39,7 +40,12 @@ class CategoryController extends Controller
         if ($request->get('parent') != 0)
             $validationRules['parent'] = 'required|exists:categories,id';
         $this->validate($request, $validationRules);
-
+        if ($request->get('parent') != 0)
+        {
+            $articles = Category::where('id', $request->get('parent'))->with('articles')->first()->articles;
+            if (count($articles))
+                return redirect()->back()->with('category has articles');
+        }
         $category = Category::create([
             'name' => $request->get('category_name'),
             'parent' => $request->get('parent')

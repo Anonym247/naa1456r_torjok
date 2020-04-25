@@ -16,7 +16,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
 
-        return view('article', [
+        return view('motion', [
             'article' => $article
         ]);
     }
@@ -33,12 +33,12 @@ class ArticleController extends Controller
     public function create(Request $request, $category_id)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'article_name' => 'required',
             'note' => 'required',
         ]);
         $article = new Article();
         $article->fill([
-            'name' => $request->get('name'),
+            'name' => $request->get('article_name'),
             'category_id' => $category_id,
             'note' => $request->get('note')
         ]);

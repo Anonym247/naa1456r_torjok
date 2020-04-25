@@ -15,6 +15,7 @@
 </head>
 <body style="
     background-image: url('{{config('app.images.background')}}');
+    background-color: {{config('app.bg-color')}};
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

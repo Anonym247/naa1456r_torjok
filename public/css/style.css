@@ -94,3 +94,54 @@ table {
 [hidden] {
     display: none !important;
 }
+
+/*Start motion*/
+
+.motion {
+    width: 90%;
+    min-height: 150px;
+    background: greenyellow;
+    border: 5px solid black;
+    border-radius: 40px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article_link {
+    margin-top: 4%;
+    /*margin-bottom: 5%;*/
+    width: 75%
+}
+
+.category_link {
+    margin-top: 3%;
+    margin-bottom: 5%;
+    width: 75%
+}
+
+.redirect_previous {
+    position: absolute;
+    top: 20px;
+    right:  160px;
+}
+
+.redirect_home {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+.motion_frame {
+    width: 100%;
+    height: 600px;
+    margin-top: 4%;
+}
+
+.content_text {
+    /*background: white;*/
+    color: #00008b;
+    font-size: 24px;
+}

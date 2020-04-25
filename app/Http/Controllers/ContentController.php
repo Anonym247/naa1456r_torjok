@@ -34,9 +34,13 @@ class ContentController extends Controller
     public function nextLevelById($id)
     {
         $categories = Category::where('parent', $id)->get();
+        $articles = Article::with('category')
+            ->where('category_id', $id)->get();
         if (count($categories))
             return view('manage', [
-                'categories' => $categories
+                'categories' => $categories,
+                'articles' => $articles,
+                'category_id' => $id
             ]);
         $articles = Article::with('category')
         ->where('category_id', $id)->get();

@@ -39,9 +39,13 @@ class ApplicationController extends Controller
             $path = '/uploads/'.$request->file('background')->storeAs('images', $request->file('background')->getClientOriginalName());
             $this->config_set('background', $path, config('app.images.background'));
         }
+        if ($request->filled('bg-color'))
+        {
+            $color = $request->get('bg-color') != '#000000'
+                ? $request->get('bg-color')
+                : '';
+            $this->config_set('bg-color', $color, config('app.bg-color'));
+        }
         return redirect(route('settings'));
-
     }
-
-
 }

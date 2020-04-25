@@ -68,12 +68,13 @@ return [
     */
 
     'timezone' => 'UTC',
-    'app_name' => 'Laravel',
+    'app_name' => 'TORJOK',
     'images' => [
         'logo' => '/uploads/images/logo.png',
         'settings' => '/images/settings.svg',
         'background' => '/uploads/images/700px-L-Kupplung.png',
     ],
+    'bg-color' => '#10214e',
 
     /*
     |--------------------------------------------------------------------------

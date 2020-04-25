@@ -5,18 +5,15 @@
     @if(isset($categories))
         <h1 class="text-center">Bölmələr</h1>
     @elseif (!isset($categories) and !isset($articles))
-        <h2>Movcud kateqoriya tapilmadi, zehmet olmasa elave edin</h2>
+        <h2 class="text-center">Mövcud bölmə tapılmadı, zəhmət olmasa əlavə edin</h2>
     @endif
 
-    @if(isset($articles))
-        <h1 class="text-center">Movzular</h1>
-    @endif
     @if(isset($categories))
     <table class="table-bordered table-condensed text-center table-striped">
             <th>No</th>
-            <th>Adi</th>
-            <th>Parent</th>
-            <th>Emeller</th>
+            <th>Adı</th>
+            <th>Üst bölmə</th>
+            <th>Əməliyyatlar</th>
             @foreach($categories as $category)
                 <tr>
                     <td>{{$category->id}}</td>
@@ -24,7 +21,7 @@
                     @if($category->parent != 0)
                         <td>{{$category->getParent->name}}</td>
                     @else
-                        <td>Ust Kateqoriya</td>
+                        <td>Üst Bölmə</td>
                     @endif
                     <td>
                         <a href="/api/categories/delete/{{$category->id}}" class="btn btn-danger">Sil</a>
@@ -32,21 +29,20 @@
                 </tr>
             @endforeach
     </table>
-    @if(count($categories) != 0)
-        <br>
-        <a href="/manage/add/category/{{$categories[0]->parent}}" class="form-control btn btn-primary">Kateqoriya elave et</a>
-    @endif
+    <br>
     @endif
 
     @if(isset($articles))
+
+        <h1 class="text-center">Mövzular</h1>
         <table class="table-bordered table-condensed">
             <th>No</th>
-            <th>Adi</th>
-            <th>Kateqoriyasi</th>
-            <th>Kateqoriya nomresi</th>
+            <th>Adı</th>
+            <th>Bölmə</th>
+            <th>Bölmə nömrəsi</th>
             <th>Media</th>
-            <th>Yazisi</th>
-            <th>Emeller</th>
+            <th>Mətn</th>
+            <th>Əməliyyat</th>
             @foreach($articles as $article)
                 <tr>
                     <td>{{$article->id}}</td>
@@ -65,17 +61,9 @@
         </table><br>
     @endif
 
-    @if(!isset($categories) and !isset($articles) and !isset($category_id))
-        <a href="/manage/add/category/{{0}}" class="btn btn-primary">Kateqoriya elave et</a>
-    @endif
-
-    @if(!isset($categories) and !isset($articles) and isset($category_id))
-        <a href="/manage/add/category/{{$category_id}}" class="btn btn-primary">Kateqoriya elave et</a>
-    @endif
-
-    @if(isset($category_id))
-        <a href="/manage/add/article/{{$category_id}}" class="btn btn-primary">Movzu elave et</a>
-    @endif
-
+        <a href="/manage/add/category/{{0}}" class="btn btn-primary btn-block">Bölmə əlavə et</a>
+        <hr>
+        <a href="/manage/add/article/{{isset($categories) ? $categories[0]->parent : 0}}" class="btn btn-primary btn-block">Mövzu əlavə et</a>
+        <hr>
 
 @endsection

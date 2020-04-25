@@ -5,7 +5,7 @@
         @csrf
         <div class="form-group"><br>
             <label for="category_name">Bölmə adı: </label>
-            <input type="text" name="category_name" class="form-control-static">
+            <input type="text" name="category_name" class="form-control">
         </div>
         <div class="form-group">
             <label for="parent">üst bölməsini seçin</label>
@@ -20,6 +20,6 @@
                 @endif
             </select>
         </div>
-        <input type="submit" value="Bölməni əlavə edin" class="btn btn-success">
+        <input type="submit" value="Bölməni əlavə edin" class="btn btn-success btn-block">
     </form>
 @endsection
