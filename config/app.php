@@ -68,13 +68,13 @@ return [
     */
 
     'timezone' => 'UTC',
-    'app_name' => 'TORJOK',
+    'app_name' => 'Fidan',
     'images' => [
-        'logo' => '/uploads/images/logo.png',
+        'logo' => '/uploads/images/logo_naa.png',
         'settings' => '/images/settings.svg',
-        'background' => '/uploads/images/700px-L-Kupplung.png',
+        'background' => '/uploads/images/azal.jpg',
     ],
-    'bg-color' => '#10214e',
+    'bg-color' => '',
 
     /*
     |--------------------------------------------------------------------------
