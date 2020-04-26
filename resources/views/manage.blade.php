@@ -61,9 +61,9 @@
         </table><br>
     @endif
 
-        <a href="/manage/add/category/{{0}}" class="btn btn-primary btn-block">Bölmə əlavə et</a>
+        <a href="/manage/add/category/{{isset($category_id) ? $category_id : 0}}" class="btn btn-primary btn-block">Bölmə əlavə et</a>
         <hr>
-        <a href="/manage/add/article/{{isset($categories) ? $categories[0]->parent : 0}}" class="btn btn-primary btn-block">Mövzu əlavə et</a>
+        <a href="/manage/add/article/{{isset($category_id) ? $category_id : 0}}" class="btn btn-primary btn-block">Mövzu əlavə et</a>
         <hr>
 
 @endsection

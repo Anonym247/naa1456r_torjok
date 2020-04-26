@@ -36,7 +36,7 @@ class ContentController extends Controller
         $categories = Category::where('parent', $id)->get();
         $articles = Article::with('category')
             ->where('category_id', $id)->get();
-        if (count($categories))
+        if (count($categories) && count($articles))
             return view('manage', [
                 'categories' => $categories,
                 'articles' => $articles,
@@ -47,6 +47,11 @@ class ContentController extends Controller
         if (count($articles))
             return view('manage', [
                 'articles' => $articles,
+                'category_id' => $id
+            ]);
+        if (count($categories))
+            return view('manage', [
+                'categories' => $categories,
                 'category_id' => $id
             ]);
         return view('manage', [

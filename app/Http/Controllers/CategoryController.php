@@ -40,12 +40,7 @@ class CategoryController extends Controller
         if ($request->get('parent') != 0)
             $validationRules['parent'] = 'required|exists:categories,id';
         $this->validate($request, $validationRules);
-        if ($request->get('parent') != 0)
-        {
-            $articles = Category::where('id', $request->get('parent'))->with('articles')->first()->articles;
-            if (count($articles))
-                return redirect()->back()->with('category has articles');
-        }
+
         $category = Category::create([
             'name' => $request->get('category_name'),
             'parent' => $request->get('parent')
@@ -53,7 +48,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('/manage/'.$request->get('parent'));
+        return redirect('manage/'.$request->get('parent'));
     }
 
     public function destroy($id)
