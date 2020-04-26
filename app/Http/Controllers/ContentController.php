@@ -11,9 +11,21 @@ class ContentController extends Controller
     public function index()
     {
         $categories = Category::where('parent', 0)->get();
+        $articles = Article::where('category_id', 0)->get();
+
+        if (count($articles) && count($categories))
+            return view('manage', [
+                'articles' => $articles,
+                'categories' => $categories
+            ]);
         if (count($categories))
             return view('manage', [
-                'categories' => $categories
+                'categories' => $categories,
+            ]);
+
+        if (count($articles))
+            return view('manage', [
+                'articles' => $articles,
             ]);
         return view('manage');
     }

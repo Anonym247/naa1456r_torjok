@@ -47,8 +47,8 @@
                 <tr>
                     <td>{{$article->id}}</td>
                     <td>{{$article->name}}</td>
-                    <td>{{$article->category->name}}</td>
-                    <td>{{$article->category->id}}</td>
+                    <td>{{isset($article->category->name) ? $article->category->name : 'ust bolme'}}</td>
+                    <td>{{isset($article->category->id) ? 0: 'ust bolme'}}</td>
                     <td>
                         <embed src="{{'../uploads/'.$article->media}}" class="article_image">
                     </td>

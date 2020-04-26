@@ -47,7 +47,6 @@ class CategoryController extends Controller
         ]);
 
         $category->save();
-
         return redirect('manage/'.$request->get('parent'));
     }
 
