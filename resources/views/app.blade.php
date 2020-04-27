@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.min.css') : asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="text/javascript" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.js') : asset('bootstrap/css/bootstrap.js')}}">
     <link rel="text/javascript" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.min.js') : asset('bootstrap/css/bootstrap.min.js')}}">
-    <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/style.css') : asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('css/style.css') : asset('css/style.css')}}">
     @csrf
     <title>{{config('global.app_name')}}</title>
 </head>
