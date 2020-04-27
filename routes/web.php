@@ -26,3 +26,4 @@ Route::get('/manage/add/article/{category_id}', function ($category_id) {
 Route::get('/manage/edit/article/{article_id}', 'ContentController@makeArticleEditView')->name('edit_article');
 Route::get('/manage/edit/category/{category_id}', 'ContentController@makeCategoryAddingView');
 Route::get('/settings', 'ApplicationController@settings')->name('settings');
+Route::get('/settings', 'ApplicationController@settings')->name('settings');

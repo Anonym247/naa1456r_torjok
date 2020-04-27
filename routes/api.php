@@ -31,4 +31,5 @@ Route::group(['prefix' => 'articles'], function () {
     Route::post('/edit/{article_id}', 'ArticleController@update');
 });
 
-Route::post('settings', 'ApplicationController@setConfiguration')->name('configure');
+Route::post('settings', 'ApplicationController@setConfig')->name('configure');
+//Route::post('settings', 'ApplicationController@setConfiguration')->name('configure');

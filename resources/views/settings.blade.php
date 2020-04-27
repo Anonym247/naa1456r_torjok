@@ -10,8 +10,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="app_name">Saytın adı</label>
                         <div class="col-md-4">
-                            <input id="app_name" name="app_name" placeholder="{{config('app.app_name')}}"
-                                   class="form-control input-md" type="text" value="{{config('app.app_name')}}">
+                            <input id="app_name" name="app_name" placeholder="{{config('global.app_name')}}"
+                                   class="form-control input-md" type="text" value="{{config('global.app_name')}}">
                         </div>
                     </div>
                     <hr>
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label for="bg-color" class="col-md-4 control-label">Rəng seçin</label>
                         <div class="col-md-4 text-right">
-                            <input type="color" class="btn btn-primary btn-block" name="bg-color" id="bg-color" value="{{config('app.background.color')}}">
+                            <input type="color" class="btn btn-primary btn-block" name="bg-color" id="bg-color" value="{{config('global.bg-color')}}">
                         </div>
                     </div>
 

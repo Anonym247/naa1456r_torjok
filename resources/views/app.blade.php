@@ -5,24 +5,24 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{secure_asset('bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('bootstrap/css/bootstrap.min.css')}}">
-    <link rel="text/javascript" href="{{secure_asset('bootstrap/js/bootstrap.js')}}">
-    <link rel="text/javascript" href="{{secure_asset('bootstrap/js/bootstrap.min.js')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.css') : asset('bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.min.css') : asset('bootstrap/css/bootstrap.min.css')}}">
+    <link rel="text/javascript" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.js') : asset('bootstrap/css/bootstrap.js')}}">
+    <link rel="text/javascript" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.min.js') : asset('bootstrap/css/bootstrap.min.js')}}">
+    <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/style.css') : asset('css/style.css')}}">
     @csrf
-    <title>{{config('app.app_name')}}</title>
+    <title>{{config('global.app_name')}}</title>
 </head>
 <body style="
-    background-image: url('{{config('app.images.background')}}');
-    background-color: {{config('app.bg-color')}};
+    background-image: url('{{config('global.background')}}');
+    background-color: {{config('global.bg-color')}};
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position-y: 100px;">
     <div class="header">
         <div class="col-md-4">
-            <a href="{{route('home')}}"><img class="logo" src="{{config('app.images.logo')}}" alt="logo"></a>
+            <a href="{{route('home')}}"><img class="logo" src="{{config('global.logo')}}" alt="logo"></a>
         </div>
         <div class="col-md-8">
             <div class="settings">
@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a id="brand" class="navbar-brand" href="{{route('home')}}">{{config('app.app_name')}}</a>
+                    <a id="brand" class="navbar-brand" href="{{route('home')}}">{{config('global.app_name')}}</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
