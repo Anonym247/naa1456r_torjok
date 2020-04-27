@@ -32,6 +32,15 @@ class ContentController extends Controller
 
     public function makeCategoryAddingView($id)
     {
+        if ($category = Category::find($id))
+        {
+            $parents = Category::where('parent', $category->parent)->get();
+            return view('add_category', [
+                'category' => $category,
+                'categories' => $parents,
+                'category_id' => $category->parent
+            ]);
+        }
         $categories = Category::where('parent', $id)->get();
         if (count($categories))
             return view('add_category', [
@@ -68,6 +77,13 @@ class ContentController extends Controller
             ]);
         return view('manage', [
             'category_id' => $id
+        ]);
+    }
+
+    public function makeArticleEditView($article_id)
+    {
+        return view('edit_article', [
+            'article' => Article::find($article_id)
         ]);
     }
 }

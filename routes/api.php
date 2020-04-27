@@ -21,13 +21,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'categories'] , function () {
     Route::get('/{id}', 'CategoryController@nextLevel');
     Route::get('/delete/{id}', 'CategoryController@destroy');
-    Route::post('/', 'CategoryController@create')->name('create_category');
+    Route::post('/{category_id}', 'CategoryController@create')->name('create_category');
 });
 
 Route::group(['prefix' => 'articles'], function () {
     Route::get('/{id}', 'ArticleController@getArticleById');
     Route::get('/delete/{id}', 'ArticleController@destroy');
     Route::post('/add/{category_id}', 'ArticleController@create');
+    Route::post('/edit/{article_id}', 'ArticleController@update');
 });
 
 Route::post('settings', 'ApplicationController@setConfiguration')->name('configure');

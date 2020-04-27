@@ -1,11 +1,12 @@
 @extends('app')
 
 @section('content')
-    <form action="{{route('create_category')}}" method="post" class="form">
+    @php($category_id = isset($category) ? $category->id : null)
+    <form action="{{route('create_category', ['category_id' => $category_id])}}" method="post" class="form">
         @csrf
         <div class="form-group"><br>
             <label for="category_name">Bölmə adı: </label>
-            <input type="text" name="category_name" class="form-control">
+            <input type="text" name="category_name" class="form-control" value="{{isset($category) ? $category->name : '' }}">
         </div>
         <div class="form-group">
             <label for="parent">üst bölməsini seçin</label>
@@ -20,6 +21,7 @@
                 @endif
             </select>
         </div>
-        <input type="submit" value="Bölməni əlavə edin" class="btn btn-success btn-block">
+
+        <input type="submit" value="{{isset($category) ? 'Bölməyə düzəliş et' : 'Bölmə əlavə et'}}" class="btn btn-success btn-block">
     </form>
 @endsection

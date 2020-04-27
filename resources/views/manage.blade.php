@@ -24,7 +24,8 @@
                         <td>Üst Bölmə</td>
                     @endif
                     <td>
-                        <a href="/api/categories/delete/{{$category->id}}" class="btn btn-danger">Sil</a>
+                        <a href="/api/categories/delete/{{$category->id}}" class="btn btn-danger">Sil</a><br>
+                        <a href="/manage/edit/category/{{$category->id}}" class="btn btn-primary">Düzəliş et</a>
                     </td>
                 </tr>
             @endforeach
@@ -47,14 +48,15 @@
                 <tr>
                     <td>{{$article->id}}</td>
                     <td>{{$article->name}}</td>
-                    <td>{{isset($article->category->name) ? $article->category->name : 'ust bolme'}}</td>
-                    <td>{{isset($article->category->id) ? 0: 'ust bolme'}}</td>
+                    <td>{{isset($article->category->name) ? $article->category->name : 'Üst bölmə'}}</td>
+                    <td>{{isset($article->category->id) ? $article->category->id : 0}}</td>
                     <td>
                         <embed src="{{'../uploads/'.$article->media}}" class="article_image">
                     </td>
                     <td>{{$article->note}}</td>
                     <td>
                         <a href="/api/articles/delete/{{$article->id}}" class="btn btn-danger">Sil</a>
+                        <a href="/manage/edit/article/{{$article->id}}" class="btn btn-primary">Düzəliş et</a>
                     </td>
                 </tr>
             @endforeach

@@ -68,7 +68,7 @@ return [
     */
 
     'timezone' => 'UTC',
-    'app_name' => 'Fidan',
+    'app_name' => 'Friday',
     'images' => [
         'logo' => '/uploads/images/logo_naa.png',
         'settings' => '/images/settings.svg',

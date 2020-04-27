@@ -57,7 +57,34 @@ class ArticleController extends Controller
                 return response()->json(['error' => 'internal error'], 404);
             }
         }
-
         return redirect('/manage/'.$category_id);
+    }
+
+    public function update(Request $request, $article_id)
+    {
+        $this->validate($request, [
+            'article_name' => 'required',
+            'note' => 'required',
+        ]);
+        $article = Article::find($article_id);
+        $article->name = $request->get('article_name');
+        $article->note = $request->get('note');
+
+        if ($request->hasFile('media'))
+        {
+            try {
+                $path = $request->file('media')->store('/media/' . $article->category_id);
+                $article->fill([
+                    'media' => $path
+                ]);
+            }
+            catch (\Exception $exception)
+            {
+                return response()->json(['error' => 'internal error'], 404);
+            }
+        }
+        $article->update();
+
+        return redirect('/manage/'.$article->category_id);
     }
 }
