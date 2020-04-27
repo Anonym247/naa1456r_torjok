@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-    <link rel="text/javascript" href="{{asset('bootstrap/js/bootstrap.js')}}">
-    <link rel="text/javascript" href="{{asset('bootstrap/js/bootstrap.min.js')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('bootstrap/css/bootstrap.min.css')}}">
+    <link rel="text/javascript" href="{{secure_asset('bootstrap/js/bootstrap.js')}}">
+    <link rel="text/javascript" href="{{secure_asset('bootstrap/js/bootstrap.min.js')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/style.css')}}">
     @csrf
     <title>{{config('app.app_name')}}</title>
 </head>
