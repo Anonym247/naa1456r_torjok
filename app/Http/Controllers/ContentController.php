@@ -30,9 +30,9 @@ class ContentController extends Controller
         return view('manage');
     }
 
-    public function makeCategoryAddingView($id)
+    public function makeCategoryAddingView($id, $edit = false)
     {
-        if ($category = Category::find($id))
+        if ($category = Category::find($id) and $edit)
         {
             $parents = Category::where('parent', $category->parent)->get();
             return view('add_category', [

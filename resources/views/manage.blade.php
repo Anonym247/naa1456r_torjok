@@ -56,7 +56,7 @@
                     <td>{{$article->note}}</td>
                     <td>
                         <a href="/api/articles/delete/{{$article->id}}" class="btn btn-danger">Sil</a>
-                        <a href="/manage/edit/article/{{$article->id}}" class="btn btn-primary">Düzəliş et</a>
+                        <a href="/manage/edit/article/{{$article->id}}/{{true}}" class="btn btn-primary">Düzəliş et</a>
                     </td>
                 </tr>
             @endforeach

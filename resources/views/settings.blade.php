@@ -6,7 +6,6 @@
             <form class="form-horizontal" method="post" action="{{route('configure')}}" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Saytın konfiqurasiyası</legend>
-
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="app_name">Saytın adı</label>
                         <div class="col-md-4">
