@@ -40,7 +40,7 @@ class CategoryController extends Controller
         if ($request->get('parent') != 0)
             $validationRules['parent'] = 'required|exists:categories,id';
         $this->validate($request, $validationRules);
-        if (!$category_id)
+        if (!is_null($category_id))
             $category = Category::create([
                 'name' => $request->get('category_name'),
                 'parent' => $request->get('parent')

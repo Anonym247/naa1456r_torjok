@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    @php($category_id = isset($category) ? $category->id : null)
+    @php($category_id = isset($category) ? $category->id : 0)
     <form action="{{route('create_category', ['category_id' => $category_id])}}" method="post" class="form">
         @csrf
         <div class="form-group"><br>
