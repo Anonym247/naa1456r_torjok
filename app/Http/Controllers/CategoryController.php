@@ -32,7 +32,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function create(Request $request, $category_id = null)
+    public function create(Request $request)
     {
         $validationRules = [
             'category_name' => 'required',
@@ -40,16 +40,23 @@ class CategoryController extends Controller
         if ($request->get('parent') != 0)
             $validationRules['parent'] = 'required|exists:categories,id';
         $this->validate($request, $validationRules);
-        if (!is_null($category_id))
-            $category = Category::create([
-                'name' => $request->get('category_name'),
-                'parent' => $request->get('parent')
+        Category::create([
+            'name' => $request->get('category_name'),
+            'parent' => $request->get('parent')
         ]);
-        else
-            $category = Category::find($category_id)->fill([
-                'name' => $request->get('category_name')
-            ])->update();
+
         return redirect('manage/'.$request->get('parent'));
+    }
+
+    public function update(Request $request, $category_id)
+    {
+        $category = Category::find($category_id)->fill([
+            'name' => $request->get('category_name'),
+            'parent' => $request->get('parent')
+        ])->update();
+
+        return redirect(route('manage', ['id' => $request->get('parent')]));
+
     }
 
     public function destroy($id)

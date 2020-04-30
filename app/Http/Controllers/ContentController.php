@@ -52,6 +52,25 @@ class ContentController extends Controller
         ]);
     }
 
+    public function makeCategoryEditView($category_id)
+    {
+        try
+        {
+            $category = Category::find($category_id);
+            $preParent = Category::find($category->parent);
+            $parents = Category::where('parent', $preParent->parent ?? 0)->get();
+            return view('edit_category', [
+                'category' => $category,
+                'parents' => $parents ?? null
+            ]);
+        }
+        catch (\Exception $exception)
+        {
+            dd($exception->getMessage());
+            return redirect()->back();
+        }
+    }
+
     public function nextLevelById($id)
     {
         $categories = Category::where('parent', $id)->get();
