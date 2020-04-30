@@ -21,7 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'categories'] , function () {
     Route::get('/{id}', 'CategoryController@nextLevel');
     Route::get('/delete/{id}', 'CategoryController@destroy');
-    Route::post('/{category_id}', 'CategoryController@create')->name('create_category');
+    Route::put('/{category_id}', 'CategoryController@create')->name('create_category');
+    Route::post('/{category_id}', 'CategoryController@update')->name('update_category');
 });
 
 Route::group(['prefix' => 'articles'], function () {
