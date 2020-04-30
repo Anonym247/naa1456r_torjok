@@ -66,7 +66,6 @@ class ContentController extends Controller
         }
         catch (\Exception $exception)
         {
-            dd($exception->getMessage());
             return redirect()->back();
         }
     }
@@ -77,25 +76,39 @@ class ContentController extends Controller
         $articles = Article::with('category')
             ->where('category_id', $id)->get();
         if (count($categories) && count($articles))
+        {
+            $parent = Category::find($categories[0]->parent ?? $articles[0]->category_id)->parent;
             return view('manage', [
                 'categories' => $categories,
                 'articles' => $articles,
-                'category_id' => $id
+                'category_id' => $id,
+                'parent' => $parent ?? ''
             ]);
+        }
         $articles = Article::with('category')
         ->where('category_id', $id)->get();
         if (count($articles))
+        {
+            $parent = Category::find($articles[0]->category_id)->parent;
             return view('manage', [
                 'articles' => $articles,
-                'category_id' => $id
+                'category_id' => $id,
+                'parent' => $parent ?? ''
             ]);
+        }
         if (count($categories))
+        {
+            if (Category::find($categories[0]->parent))
+                $parent = Category::find($categories[0]->parent)->parent;
             return view('manage', [
                 'categories' => $categories,
-                'category_id' => $id
+                'category_id' => $id,
+                'parent' => $parent ?? 0
             ]);
+        }
         return view('manage', [
-            'category_id' => $id
+            'category_id' => $id,
+            'parent' => Category::find($id) ? Category::find($id)->parent : ''
         ]);
     }
 
