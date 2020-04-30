@@ -86,7 +86,7 @@ class ContentController extends Controller
             ]);
         }
         $articles = Article::with('category')
-        ->where('category_id', $id)->get();
+            ->where('category_id', $id)->get();
         if (count($articles))
         {
             $parent = Category::find($articles[0]->category_id)->parent;

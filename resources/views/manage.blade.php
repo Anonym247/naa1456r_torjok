@@ -7,7 +7,6 @@
     @elseif (!isset($categories) and !isset($articles))
         <h2 class="text-center">Mövcud bölmə tapılmadı, zəhmət olmasa əlavə edin</h2>
     @endif
-    @php($url = explode('/', url()->current()))
     @if(isset($parent) and $parent !== 0)
         <a href="/manage/{{$parent}}" class="btn btn-block btn-danger">Geriyə</a>
     @endif
