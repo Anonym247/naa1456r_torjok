@@ -19,7 +19,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position-y: 100px;">
+    /*background-position-y: 100px;*/
+    ">
     <div class="header">
         <div class="col-md-4">
             <a href="{{route('home')}}"><img class="logo" src="{{config('global.logo')}}" alt="logo"></a>
