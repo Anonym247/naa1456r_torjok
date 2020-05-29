@@ -45,7 +45,7 @@ class ApplicationController extends Controller
                 : '';
             $this->config_set('bg-color', $color, config('app.bg-color'));
         }
-        return redirect(route('settings'));
+        return redirect(route('home'));
     }
 
     public function setConfig(Request $request)
@@ -103,7 +103,7 @@ class ApplicationController extends Controller
         Configuration::truncate();
         Configuration::insert($data);
 
-        return view('settings');
+        return redirect(route('settings'));
     }
 
 }
