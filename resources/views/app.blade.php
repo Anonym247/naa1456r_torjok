@@ -10,6 +10,10 @@
     <link rel="text/javascript" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.js') : asset('bootstrap/css/bootstrap.js')}}">
     <link rel="text/javascript" href="{{ (env('APP_ENV') != 'local') ? secure_asset('bootstrap/css/bootstrap.min.js') : asset('bootstrap/css/bootstrap.min.js')}}">
     <link rel="stylesheet" href="{{ (env('APP_ENV') != 'local') ? secure_asset('css/style.css') : asset('css/style.css')}}">
+
+{{--    <link href="https://vjs.zencdn.net/7.8.2/video-js.css" rel="stylesheet" />--}}
+{{--    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>--}}
+{{--    <script src="https://vjs.zencdn.net/7.8.2/video.js"></script>--}}
     @csrf
     <title>{{config('global.app_name')}}</title>
 </head>
@@ -19,7 +23,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position-y: 100px;">
+    /*background-position-y: 100px;*/
+    ">
     <div class="header">
         <div class="col-md-4">
             <a href="{{route('home')}}"><img class="logo" src="{{config('global.logo')}}" alt="logo"></a>

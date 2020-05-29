@@ -98,16 +98,15 @@ table {
 /*Start motion*/
 
 .motion {
-    width: 90%;
+    max-width: 100%;
     min-height: 150px;
     background: greenyellow;
     border: 5px solid black;
     border-radius: 40px;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
 }
 
 .article_link {
@@ -125,7 +124,7 @@ table {
 .redirect_previous {
     position: absolute;
     top: 20px;
-    right:  160px;
+    right:  60px;
 }
 
 .redirect_home {
@@ -134,14 +133,17 @@ table {
     left: 40px;
 }
 
-.motion_frame {
-    width: 100%;
-    height: 600px;
-    margin-top: 4%;
-}
+/*.motion_frame {*/
+/*    width: 100%;*/
+/*    height: 600px;*/
+/*    margin-top: 4%;*/
+/*}*/
 
 .content_text {
-    /*background: white;*/
+    background: none;
+    border: none;
     color: #00008b;
-    font-size: 24px;
+    font-size: 19px;
+    width: auto;
+    max-width: 90%;
 }
