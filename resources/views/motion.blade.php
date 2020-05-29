@@ -2,8 +2,8 @@
 
 @section('content')
     <section class="categories">
-        <div class="col-md-2"></div>
-        <div class="col-md-9">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
             <div class="motion">
                 @if(isset($parent))
                     <div class="redirect_previous">
@@ -17,10 +17,12 @@
                 @endif
 
                 @if(isset($article))
+                        <br>
+                    <h3>{{$article->name}}</h3>
                         <embed src="{{'../../uploads/'.$article->media}}" class="motion_frame">
-                        <p class="text-info content_text">
+                        <pre class="text-info content_text">
                             {{$article->note}}
-                        </p>
+                        </pre>
                 @endif
 
                 @if(isset($categories))
