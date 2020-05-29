@@ -146,4 +146,5 @@ table {
     font-size: 19px;
     width: auto;
     max-width: 90%;
+    white-space: pre-wrap;
 }
