@@ -44,19 +44,12 @@ class ArticleController extends Controller
         ]);
 
         if ($request->hasFile('media'))
-        {
-            try {
-                $path = $request->file('media')->store('/media/' . $category_id);
+            $path = $request->file('media')->store('/media/' . $category_id);
+        $path = $path ?? '';
+        $article->fill([
+            'media' => $path
+        ])->save();
 
-                $article->fill([
-                    'media' => $path
-                ])->save();
-            }
-            catch (\Exception $exception)
-            {
-                return response()->json(['error' => 'internal error'], 404);
-            }
-        }
         return redirect('/manage/'.$category_id);
     }
 
