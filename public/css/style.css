@@ -165,3 +165,14 @@ table {
     max-width: 90%;
     white-space: pre-wrap;
 }
+
+.profile {
+    position: absolute;
+    right: 6vw;
+    top: 2vh;
+}
+
+.profile_buttons {
+    font-size: 24px;
+    color: deepskyblue;
+}

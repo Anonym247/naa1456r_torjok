@@ -26,13 +26,29 @@
     /*background-position-y: 100px;*/
     ">
     <div class="header">
+        <div class="profile">
+                @guest
+                        <a class="profile_buttons" href="{{ route('login') }}">{{ __('Login') }}</a>
+                @else
+                        <span class="profile_buttons" href="" role="button" >
+                            {{ 'Xos gelmisiz, ' . Auth::user()->name }}
+                        </span>
+                        <form action="{{ route('logout') }}" method="POST">
+                            <input type="submit" value="Log out" class="btn btn-primary btn-lg btn-block ">
+                            @csrf
+                        </form>
+                @endguest
+        </div>
         <div class="col-md-4">
             <a href="{{route('home')}}"><img class="logo" src="{{config('global.logo')}}" alt="logo"></a>
         </div>
         <div class="col-md-8">
-            <div class="settings">
-                <a href="{{route('settings')}}"><img src="{{config('app.images.settings')}}" alt="settings"></a>
-            </div>
+           @guest
+            @else
+                <div class="settings">
+                    <a href="{{route('settings')}}"><img src="{{config('app.images.settings')}}" alt="settings"></a>
+                </div>
+            @endguest
         </div>
     </div>
     <div class="menu">
@@ -50,13 +66,18 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{route('motion')}}">Başla</a></li>
-                        <li class="active"><a href="{{route('manage')}}">Tənzimlə</a></li>
-                        <li><a href="{{}}">Haqqımızda</a></li>
+                        @guest
+                        @else
+
+                            <li class="active"><a href="{{route('manage')}}">Tənzimlə</a></li>
+                        @endguest
+                        <li><a href="{{'test'}}">Haqqımızda</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
+
     <div class="main_content">
         @yield('content')
     </div>
