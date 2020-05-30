@@ -20,9 +20,7 @@
                         <br>
                     <h3>{{$article->name}}</h3>
                         <embed src="{{'../../uploads/'.$article->media}}" class="motion_frame">
-                        <pre class="text-info content_text">
-                            {{$article->note}}
-                        </pre>
+                        <pre class="text-info content_text">{{$article->note}}</pre>
                 @endif
 
                 @if(isset($categories))

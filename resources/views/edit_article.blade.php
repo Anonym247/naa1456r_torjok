@@ -12,9 +12,7 @@
                 </div>
                 <div class="form-group">
                     <label for="note">
-                        Mövzu mətni: <textarea name="note" id="note" cols="76" rows="15" class="form-control">
-                            {{$article->note}}
-                        </textarea>
+                        Mövzu mətni: <textarea name="note" id="note" cols="76" rows="15" class="form-control">{{$article->note}}</textarea>
                     </label>
                 </div>
                 <div class="form-group">

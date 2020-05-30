@@ -2,8 +2,8 @@
 <script type="text/javascript" src="{{asset('js/swfobject.js')}}"></script>
 
 @section('content')
-    @if(isset($categories))
-        <h1 class="text-center">Bölmələr</h1>
+    @if(isset($categories))<br>
+        <h3 class="text-center" style="margin-top: -10px;">Bölmələr</h3>
     @elseif (!isset($categories) and !isset($articles))
         <h2 class="text-center">Mövcud bölmə tapılmadı, zəhmət olmasa əlavə edin</h2>
     @endif
@@ -58,7 +58,7 @@
                     <td>{{$article->note}}</td>
                     <td>
                         <a href="/api/articles/delete/{{$article->id}}" class="btn btn-danger">Sil</a>
-                        <a href="/manage/edit/article/{{$article->id}}/{{true}}" class="btn btn-primary">Düzəliş et</a>
+                        <a href="/manage/edit/article/{{$article->id}}" class="btn btn-primary">Düzəliş et</a>
                     </td>
                 </tr>
             @endforeach

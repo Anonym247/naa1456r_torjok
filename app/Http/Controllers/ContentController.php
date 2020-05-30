@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('only_admins');
+    }
+
     public function index()
     {
         $categories = Category::where('parent', 0)->get();
