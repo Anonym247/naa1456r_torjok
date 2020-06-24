@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Article;
+use App\Category;
 use DemeterChain\A;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,9 +16,9 @@ class ArticleController extends Controller
     public function getArticleById($id)
     {
         $article = Article::find($id);
-
         return view('motion', [
-            'article' => $article
+            'article' => $article,
+            'parent' => $article->category
         ]);
     }
 
