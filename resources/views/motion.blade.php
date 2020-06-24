@@ -29,6 +29,7 @@
                         class="category_link btn btn-default">{{$category->name}}</a>
                     @endforeach
                 @endif
+
                 @if(isset($articles))
                     @foreach($articles as $article)
                         <a href="/api/articles/{{$article->id}}"

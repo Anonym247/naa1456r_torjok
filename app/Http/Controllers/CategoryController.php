@@ -21,14 +21,17 @@ class CategoryController extends Controller
         $categories = Category::with('getParent')
         ->where('parent', $id)->get();
         $articles = Article::where('category_id', $id)->get();
+        $parent = Category::where('id', $id)->first();
         if (count($categories))
             return view('motion', [
                 'categories' => $categories,
-                'parent' => $categories[0]->getParent,
+                //'parent' => $categories[0]->getParent,
+                'parent' => $parent,
                 'articles' => $articles
             ]);
         return view('motion', [
-            'articles' => $articles
+            'articles' => $articles,
+            'parent' => $parent
         ]);
     }
 
