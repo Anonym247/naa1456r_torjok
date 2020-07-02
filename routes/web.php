@@ -33,3 +33,6 @@ Route::get('/settings', 'ApplicationController@settings')->name('settings')->mid
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', function () {
+    return view('about_us');
+})->name('about_us');
